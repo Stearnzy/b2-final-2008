@@ -64,5 +64,21 @@ describe "As a visitor" do
       expect(page).to have_content('Rebecca Pope')
       expect(page).to_not have_content('Zola Shepherd')
     end
+
+    it "Next to each patient's name I see a button to remove them from the doc's caseload" do
+      visit "/doctors/#{@doc_1.id}"
+
+      within "#patient-#{@patient_1.id}" do
+        expect(page).to have_button("Remove")
+      end
+
+      within "#patient-#{@patient_2.id}" do
+        expect(page).to have_button("Remove")
+      end
+
+      within "#patient-#{@patient_3.id}" do
+        expect(page).to have_button("Remove")
+      end
+    end
   end
 end
