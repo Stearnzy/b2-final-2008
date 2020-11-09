@@ -17,7 +17,8 @@ describe "As a visitor" do
       @doc_2 = Doctor.create!({
         name: 'Alex Karev',
         specialty: 'Pediatric Surgery',
-        education: 'Johns Hopkins University'
+        education: 'Johns Hopkins University',
+        hospital_id: @hospital.id
         })
 
       @patient_1 = Patient.create!({
@@ -51,9 +52,6 @@ describe "As a visitor" do
       expect(page).to have_content('Meredith Grey')
       expect(page).to have_content('Specialty: General Surgery')
       expect(page).to have_content('Education: Harvard University')
-      ,
-      specialty: 'General Surgery',
-      education:
     end
   end
 end
