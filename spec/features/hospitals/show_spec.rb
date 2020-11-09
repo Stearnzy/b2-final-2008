@@ -36,14 +36,14 @@ describe "As a visitor" do
         name: 'Derek McDreamy Shepherd',
         specialty: 'Attending Surgeon',
         university: 'University of Pennsylvania',
-        hospital_id: @hospital.id
+        hospital_id: @hospital_2.id
         })
 
       @doc_5 = Doctor.create!({
         name: 'Dwayne Johnson',
         specialty: 'Chiropractor',
         university: 'Stanford University',
-        hospital_id: @hospital_2.id
+        hospital_id: @hospital.id
         })
     end
 
