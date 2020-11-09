@@ -10,14 +10,14 @@ describe "As a visitor" do
       @doc_1 = Doctor.create!({
         name: 'Meredith Grey',
         specialty: 'General Surgery',
-        education: 'Harvard University',
+        university: 'Harvard University',
         hospital_id: @hospital.id
         })
 
       @doc_2 = Doctor.create!({
         name: 'Alex Karev',
         specialty: 'Pediatric Surgery',
-        education: 'Johns Hopkins University',
+        university: 'Johns Hopkins University',
         hospital_id: @hospital.id
         })
 
@@ -42,7 +42,7 @@ describe "As a visitor" do
       @patient_4 = Patient.create!({
         name: 'Zola Shepherd',
         age: 2,
-        doctor_id: @doc_2
+        doctor_id: @doc_2.id
         })
     end
 
