@@ -80,5 +80,19 @@ describe "As a visitor" do
         expect(page).to have_button("Remove")
       end
     end
+
+    it "When I click the remove button next to a patient, I am brought back to doctor's
+        show page and I no longer see that patient's name" do
+        visit "/doctors/#{@doc_1.id}"
+
+        within "#patient-#{@patient_2.id}" do
+          click_button("Remove")
+        end
+
+        expect(current_path).to eq("/doctors/#{@doc_1.id}")
+        expect(page).to have_content('Katie Bryce')
+        expect(page).to have_content('Rebecca Pope')
+        expect(page).to_not have_content('Denny Duquette')
+    end
   end
 end
