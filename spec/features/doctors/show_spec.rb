@@ -53,5 +53,16 @@ describe "As a visitor" do
       expect(page).to have_content('Specialty: General Surgery')
       expect(page).to have_content('Education: Harvard University')
     end
+
+    it "I see the name of the hospital they work at and names of all their patients" do
+      visit "/doctors/#{@doc_1.id}"
+
+      expect(page).to have_content('Works at Grey Sloan Memorial Hospital')
+      expect(page).to have_content('Patients:')
+      expect(page).to have_content('Katie Bryce')
+      expect(page).to have_content('Denny Duquette')
+      expect(page).to have_content('Rebecca Pope')
+      expect(page).to_not have_content('Zola Shepherd')
+    end
   end
 end
