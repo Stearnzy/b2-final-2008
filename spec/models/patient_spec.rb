@@ -7,7 +7,8 @@ describe Patient, type: :model do
   end
 
   describe "relationships" do
-    it { should belong_to :doctor }
+    it { should have_many :doctor_patients }
+    it { should have_many(:doctors).through(:doctor_patients) }
   end
 
   describe "model test" do
@@ -57,7 +58,7 @@ describe Patient, type: :model do
 
     it "#oldest_to_youngest" do
       patients = Patient.all
-require "pry"; binding.pry
+# require "pry"; binding.pry
       expected = ['Denny Duquette', 'Rebecca Pope', 'Katie Bryce', 'Zola Shepherd']
       expect(patients.oldest_to_youngest).to eq(expected)
     end
