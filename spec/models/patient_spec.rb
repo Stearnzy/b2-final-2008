@@ -56,7 +56,7 @@ describe Patient, type: :model do
         })
     end
 
-    it "#oldest_to_youngest" do
+    xit "#oldest_to_youngest" do
       patients = Patient.all
 # require "pry"; binding.pry
       expected = ['Denny Duquette', 'Rebecca Pope', 'Katie Bryce', 'Zola Shepherd']
