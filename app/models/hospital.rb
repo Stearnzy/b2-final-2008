@@ -5,4 +5,8 @@ class Hospital < ApplicationRecord
   def doc_count
     doctors.count
   end
+
+  def alma_maters
+    doctors.distinct.pluck(:university)
+  end
 end
