@@ -23,27 +23,19 @@ describe "As a visitor" do
 
       @patient_1 = Patient.create!({
         name: 'Katie Bryce',
-        age: 24,
-        doctor_id: @doc_1.id
-        })
+        age: 24        })
 
       @patient_2 = Patient.create!({
         name: 'Denny Duquette',
-        age: 39,
-        doctor_id: @doc_1.id
-        })
+        age: 39        })
 
       @patient_3 = Patient.create!({
         name: 'Rebecca Pope',
-        age: 32,
-        doctor_id: @doc_1.id
-        })
+        age: 32        })
 
       @patient_4 = Patient.create!({
         name: 'Zola Shepherd',
-        age: 2,
-        doctor_id: @doc_2.id
-        })
+        age: 2        })
     end
 
     it "I see the names of all patients listed from oldest to youngest" do
