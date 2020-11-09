@@ -7,6 +7,10 @@ describe "As a visitor" do
         name: 'Grey Sloan Memorial Hospital'
         })
 
+      @hospital_2 = Hospital.create!({
+        name: 'Seaside Health & Wellness Center'
+        })
+
       @doc_1 = Doctor.create!({
         name: 'Meredith Grey',
         specialty: 'General Surgery',
@@ -39,7 +43,7 @@ describe "As a visitor" do
         name: 'Dwayne Johnson',
         specialty: 'Chiropractor',
         university: 'Stanford University',
-        hospital_id: @hospital.id
+        hospital_id: @hospital_2.id
         })
     end
 
@@ -52,7 +56,7 @@ describe "As a visitor" do
     it "I see the number of doctors that work here" do
       visit "/hospitals/#{@hospital.id}"
 
-      expect(page).to have_content('Number of doctors: 5')
+      expect(page).to have_content('Number of doctors: 4')
     end
   end
 end
