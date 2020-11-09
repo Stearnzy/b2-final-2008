@@ -1,1 +1,8 @@
 <h1>Patients Index</h1>
+
+<h2>Patients, Oldest to Youngest</h2>
+<ol>
+  <% @patients_sorted.each do |patient| %>
+    <%= patient %>
+  <% end %>
+</ol>
