@@ -58,5 +58,15 @@ describe "As a visitor" do
 
       expect(page).to have_content('Number of doctors: 4')
     end
+
+    it "I see a unique list of universities this hospital's docs attended" do
+      visit "/hospitals/#{@hospital.id}"
+
+      expect(page).to have_content('Alma maters:')
+      expect(page).to have_content('Harvard University')
+      expect(page).to have_content('Johns Hopkins University')
+      expect(page).to have_content('Stanford University')
+      expect(page).to_not have_content('University of Pennsylvania')
+    end
   end
 end
