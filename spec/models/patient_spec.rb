@@ -55,12 +55,5 @@ describe Patient, type: :model do
         doctor_id: @doc_2.id
         })
     end
-
-    it "#oldest_to_youngest" do
-      patients = Patient.all
-# require "pry"; binding.pry
-      expected = ['Denny Duquette', 'Rebecca Pope', 'Katie Bryce', 'Zola Shepherd']
-      expect(patients.oldest_to_youngest).to eq(expected)
-    end
   end
 end
