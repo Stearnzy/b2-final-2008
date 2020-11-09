@@ -6,12 +6,53 @@ describe "As a visitor" do
       @hospital = Hospital.create!({
         name: 'Grey Sloan Memorial Hospital'
         })
+
+      @doc_1 = Doctor.create!({
+        name: 'Meredith Grey',
+        specialty: 'General Surgery',
+        university: 'Harvard University',
+        hospital_id: @hospital.id
+        })
+
+      @doc_2 = Doctor.create!({
+        name: 'Alex Karev',
+        specialty: 'Pediatric Surgery',
+        university: 'Johns Hopkins University',
+        hospital_id: @hospital.id
+        })
+
+      @doc_3 = Doctor.create!({
+        name: 'Miranda Bailey',
+        specialty: 'General Surgery',
+        university: 'Stanford University',
+        hospital_id: @hospital.id
+        })
+
+      @doc_4 = Doctor.create!({
+        name: 'Derek McDreamy Shepherd',
+        specialty: 'Attending Surgeon',
+        university: 'University of Pennsylvania',
+        hospital_id: @hospital.id
+        })
+
+      @doc_5 = Doctor.create!({
+        name: 'Dwayne Johnson',
+        specialty: 'Chiropractor',
+        university: 'Stanford University',
+        hospital_id: @hospital.id
+        })
     end
 
     it "I see the hospital's name" do
       visit "/hospitals/#{@hospital.id}"
 
       expect(page).to have_content('Grey Sloan Memorial Hospital')
+    end
+
+    it "I see the number of doctors that work here" do
+      visit "/hospitals/#{@hospital.id}"
+
+      expect(page).to have_content('Number of doctors: 5')
     end
   end
 end
